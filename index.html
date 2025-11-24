@@ -561,13 +561,32 @@ vipGenerateBtn.addEventListener('click', async () => {
     const x = (w - imgW)/2;
     ctx.drawImage(img, x, 20, imgW, imgH);
 
-    // Texto "¡Los esperamos!"
-    ctx.fillStyle = '#ff92ff';
-    ctx.font = 'bold 28px Montserrat, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('¡Los esperamos!', w/2, h - 40);
+   // Texto "¡Los esperamos!"
+ctx.font = 'bold 34px Montserrat, sans-serif';
+ctx.textAlign = 'center';
 
-    lastCanvas = canvas;
+// Gradiente neón
+const gradient = ctx.createLinearGradient(0, 0, w, 0);
+gradient.addColorStop(0, '#ff92ff');
+gradient.addColorStop(0.5, '#fff');
+gradient.addColorStop(1, '#8c52ff');
+ctx.fillStyle = gradient;
+
+// Sombra estilo glow
+ctx.shadowColor = '#ff92ff';
+ctx.shadowBlur = 20;
+ctx.shadowOffsetX = 0;
+ctx.shadowOffsetY = 0;
+
+// Texto principal
+ctx.fillText('¡Los esperamos!', w/2, h - 40);
+
+// Contorno extra para dar más fuerza
+ctx.lineWidth = 3;
+ctx.strokeStyle = '#fff';
+ctx.strokeText('¡Los esperamos!', w/2, h - 40);
+
+lastCanvas = canvas;
 
     // Mostrar preview
     vipPreview.innerHTML = '';
