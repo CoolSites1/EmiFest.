@@ -391,14 +391,18 @@ body{
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.map-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-}
-
 .map-btn:active {
   transform: scale(0.95);
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+.welcome-img {
+  width: 100%;
+  max-width: 320px;   /* límite para que no se vea gigante */
+  border-radius: 16px;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  animation: fadeIn 1s ease forwards;
 }
 </style>
 </head>
@@ -409,13 +413,15 @@ body{
   <div class="welcome-content">
     <h1 class="welcome-title">EmiFest 2026</h1>
     <p class="welcome-sub">¡La misión Comienza!</p>
-    
+
+    <!-- Imagen adaptada -->
+    <img src="0.jpg" alt="EmiFest 2026" class="welcome-img">
+
     <button id="enterBtn" class="welcome-btn" onclick="showInvitation()">
       Entrar 🚀
     </button>
   </div>
 </div>
-
 
 <!-- INVITACION -->
 <div class="invite-wrapper" id="invitation">
