@@ -469,6 +469,151 @@ body{
   box-shadow: 0 0 12px rgba(177, 231, 133, 0.6);
   letter-spacing: 2px;
 }
+/* ======= MOBILE FIX (para pantallas <= 480px) ======= */
+@media (max-width: 480px) {
+
+  body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .invite-wrapper {
+    padding: 20px 15px !important;
+  }
+
+  .invite-card {
+    padding: 25px 18px !important;
+    border-radius: 14px !important;
+    max-width: 100% !important;
+  }
+
+  .invite-title {
+    font-size: 28px !important;
+  }
+
+  .invite-subtitle {
+    font-size: 14px !important;
+    margin-bottom: 18px !important;
+  }
+
+  /* GRID */
+  .invite-info-grid {
+    gap: 14px !important;
+  }
+
+  .invite-item {
+    padding: 12px !important;
+    border-radius: 10px !important;
+  }
+
+  .invite-item h3 {
+    font-size: 15px !important;
+  }
+
+  .invite-item p {
+    font-size: 13px !important;
+  }
+
+  /* Countdown */
+  #countdown {
+    font-size: 18px !important;
+  }
+
+  /* Carousel */
+  .carousel-container {
+    max-width: 260px !important;
+  }
+
+  .carousel img {
+    height: 180px !important;
+    object-fit: cover !important;
+  }
+
+  .carousel-btn {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 18px !important;
+  }
+
+  /* Dresscode */
+  .dresscode {
+    padding: 12px !important;
+  }
+
+  .dresscode p {
+    font-size: 13px !important;
+  }
+
+  /* Selfie Pass */
+  .selfie-pass {
+    padding: 15px !important;
+  }
+
+  .vip-pass {
+    width: 85% !important;
+    margin: auto !important;
+    border-radius: 12px !important;
+  }
+
+  .vip-pass img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 12px !important;
+  }
+
+  /* QR output */
+  #generatedImage {
+    width: 90% !important;
+    max-width: 300px !important;
+  }
+
+  /* Botones */
+  button, .invite-btn {
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+    border-radius: 25px !important;
+  }
+
+  /* Mapa */
+  iframe {
+    width: 100% !important;
+    height: 240px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Secciones */
+  .section {
+    margin-bottom: 22px !important;
+    padding: 15px !important;
+    border-radius: 12px !important;
+  }
+}
+/* AGREGAR AL CALENDARIO */
+.calendar-add { text-align:center; }
+
+.calendar-btns{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.cal-btn{
+  background: linear-gradient(90deg,#ff98ff,#a86cff);
+  padding:10px 18px;
+  border-radius:12px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 0 12px rgba(255,0,255,0.4);
+  transition:.25s;
+}
+
+.cal-btn:hover{
+  transform:scale(1.08);
+}
+
 </style>
 </head>
 <body>
@@ -753,9 +898,59 @@ const timer = setInterval(() => {
     `${days}d : ${hours}h : ${mins}m : ${secs}s`;
 }, 1000);
 
+// BOTÓN AGREGAR AL CALENDARIO — CORREGIDO
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const calTitle = "Los Guerreros — K-POP NIGHT";
+  const calLocation = "Lago Chapultepec 124, Agua Azul Secc Pirules, Nezahualcóyotl, Méx.";
+  const calStart = "20260110T150000";
+  const calEnd = "20260110T190000";
+
+  // GOOGLE CALENDAR
+  const googleUrl =
+    `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+    `&text=${encodeURIComponent(calTitle)}` +
+    `&dates=${calStart}/${calEnd}` +
+    `&location=${encodeURIComponent(calLocation)}` +
+    `&details=${encodeURIComponent("No faltes! Evento especial de Los Guerreros.")}`;
+
+  document.getElementById("googleCalLink").href = googleUrl;
+
+  // APPLE CALENDAR (.ICS)
+  const icsFile =
+`BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+DTSTART:${calStart}
+DTEND:${calEnd}
+SUMMARY:${calTitle}
+LOCATION:${calLocation}
+DESCRIPTION:No faltes! Evento especial de Los Guerreros.
+END:VEVENT
+END:VCALENDAR`;
+
+  const blob = new Blob([icsFile], { type: "text/calendar" });
+  const url = URL.createObjectURL(blob);
+
+  const appleLink = document.getElementById("appleCalLink");
+  appleLink.href = url;
+  appleLink.download = "Las_Guerreras.ics";
+});
 
 
 </script>
+<!-- 📅 AGREGAR AL CALENDARIO -->
+<div class="section calendar-add">
+  <h3>📅 Agrega el evento a tu calendario</h3>
+  <p style="opacity:.8;font-size:14px;margin-bottom:10px;">Guarda la fecha en tu celular</p>
+
+  <div class="calendar-btns">
+    <a id="googleCalLink" class="cal-btn" target="_blank">✨ Google Calendar</a>
+    <a id="appleCalLink" class="cal-btn">🍎 Apple Calendar</a>
+  </div>
+</div>
+
 
 
 </body>
