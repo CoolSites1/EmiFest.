@@ -90,36 +90,45 @@ body{
 
 
 /* INVITATION */
-.invite-container{
-  width:100%;
-  max-width:900px;
-  background:var(--glass);
-  backdrop-filter:blur(12px);
-  border-radius:20px;
-  padding:30px;
-  margin:40px auto;
-  box-shadow:0 0 25px rgba(0,0,0,0.4);
-  border:1px solid rgba(255,255,255,0.07);
-  display:none;
+.invite-container {
+  width: 100%;
+  max-width: 900px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 40px auto;
+  box-shadow: 0 0 25px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.07);
+  display: none;
   animation: fadeUp 0.7s ease forwards;
 }
 
-.section{
-  background:var(--card);
-  margin:15px 0;
-  padding:20px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,0.06);
+/* Secciones internas */
+.section {
+  background: var(--card);
+  margin: 15px 0;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: 0.3s ease;
+}
+.section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
-.section h3{
-  font-size:20px;
-  color:var(--accent);
-  margin-bottom:6px;
+.section h3 {
+  font-size: 20px;
+  color: var(--accent);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.section p{
-  color:var(--muted);
+.section p {
+  color: var(--muted);
+  font-size: 15px;
 }
 
 /* Confetti */
@@ -147,14 +156,15 @@ body{
     opacity: 0;
   }
 }
+
 /* INVITE STYLES */
-.invite-wrapper{
-  display:none;
-  padding:40px 20px;
+.invite-wrapper {
+  display: none;
+  padding: 40px 20px;
   animation: fadeIn 0.8s ease forwards;
 }
 
-.invite-card{
+.invite-card {
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(255,255,255,0.25);
   backdrop-filter: blur(12px);
@@ -164,6 +174,11 @@ body{
   margin: auto;
   text-align: center;
   box-shadow: 0 0 20px rgba(231, 218, 96, 0.25);
+  transition: 0.4s ease;
+}
+.invite-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(231, 218, 96, 0.35);
 }
 
 .invite-title {
@@ -174,65 +189,69 @@ body{
   text-transform: uppercase;
   margin-bottom: 5px;
 }
-.invite-subtitle{
-  font-size: 15px;
-  color: #dcdcdc;
+
+.invite-subtitle {
+  font-size: 16px;
+  color: #f5f5f5;
   margin-bottom: 25px;
+  font-style: italic;
 }
 
-.invite-info-grid{
+.invite-info-grid {
   display: grid;
   gap: 18px;
 }
 
-.invite-item{
+.invite-item {
   background: rgba(255,255,255,0.05);
   padding: 15px;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.15);
   transition: 0.3s;
 }
-.invite-item:hover{
+.invite-item:hover {
   transform: translateY(-4px);
-  background: rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.12);
 }
 
-.invite-item h3{
+.invite-item h3 {
   margin-bottom: 5px;
   color: #fff;
   font-size: 17px;
   font-weight: 700;
 }
 
-.invite-item p{
-  margin:0;
+.invite-item p {
+  margin: 0;
   font-size: 15px;
   color: #cfcfcf;
 }
 
-.invite-btn{
+.invite-btn {
   display: inline-block;
   margin-top: 8px;
-  padding: 9px 18px;
+  padding: 10px 20px;
   border-radius: 30px;
   font-size: 14px;
   text-decoration: none;
   background: linear-gradient(90deg,#ff92ff,#8c52ff);
-  color:#fff;
-  font-weight:600;
+  color: #fff;
+  font-weight: 600;
   transition: .3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
-.invite-btn:hover{
+.invite-btn:hover {
   filter: brightness(1.2);
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
-.invite-footer{
-  margin-top:25px;
-  font-size:14px;
-  font-weight:500;
-  color:#ffe1ff;
+.invite-footer {
+  margin-top: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffe1ff;
   opacity: .9;
+  letter-spacing: 1px;
 }
 
 /* Animation */
@@ -379,7 +398,7 @@ body{
   text-shadow: 0 0 4px #000;
 }
 .map-btn {
-  background: linear-gradient(135deg, #ff92ff, #9b59b6); /* degradado vibrante */
+  background: linear-gradient(135deg, #76aff0, #86b2eb); /* degradado vibrante */
   color: #fff;
   font-weight: bold;
   font-size: 16px;
@@ -389,6 +408,11 @@ body{
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.map-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
 }
 
 .map-btn:active {
@@ -403,6 +427,47 @@ body{
   display: block;
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
   animation: fadeIn 1s ease forwards;
+}
+#countdownBox {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+#countdownBox:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.12);
+}
+
+#countdownBox h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #7b9fec; /* vibrante para destacar la fecha */
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#countdownBox h3 {
+  font-size: 18px;
+  color: #bdb8ec;
+  margin-bottom: 12px;
+}
+
+#countdown {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg,#e08490,#8c52ff);
+  padding: 10px 18px;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0 0 12px rgba(177, 231, 133, 0.6);
+  letter-spacing: 2px;
 }
 </style>
 </head>
@@ -433,6 +498,7 @@ body{
     <div class="invite-info-grid">
 
     <div class="section" id="countdownBox">
+      <h2>El gran dia es el sabado 10 de enero  </h2>
   <h3>⏳ Falta para el gran día</h3>
   <div id="countdown"></div>
 </div>
@@ -474,7 +540,7 @@ body{
   <h3>📸 Mis cumpleaños</h3>
 
   <div class="carousel-container">
-    <button class="carousel-btn prev" onclick="moveSlide(-1)">‹</button>
+    
 
     <div class="carousel">
       <img src="1.jpg" alt="Foto 1">
@@ -483,17 +549,31 @@ body{
       <img src="4.jpg" alt="Foto 4">
       <img src="5.jpg" alt="Foto 5">
       <img src="6.jpg" alt="Foto 6">
-      <img src="7.jpg" alt="Foto 1">
-      <img src="8.jpg" alt="Foto 2">
-      <img src="9.jpg" alt="Foto 3">
-      <img src="10.jpg" alt="Foto 3">
+     
 
     </div>
+    <script>
+let currentIndex = 0;
+const carousel = document.querySelector('.carousel');
+const totalSlides = document.querySelectorAll('.carousel img').length;
 
-    <button class="carousel-btn next" onclick="moveSlide(1)">›</button>
-  </div>
-</div>
+function moveSlide(direction) {
+  currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+  updateCarousel();
+}
 
+function updateCarousel() {
+  const offset = -currentIndex * 100; // mueve por porcentaje
+  carousel.style.transform = `translateX(${offset}%)`;
+}
+
+// 🔄 Auto-play cada 3 segundos
+setInterval(() => {
+  moveSlide(1);
+}, 3000);
+</script>
+
+   
 
 
 
@@ -566,8 +646,7 @@ vipGenerateBtn.addEventListener('click', async () => {
     const imgW = img.width * (imgH/img.height);
     const x = (w - imgW)/2;
     ctx.drawImage(img, x, 20, imgW, imgH);
-
-   // Texto "¡Los esperamos!"
+// Texto "¡Los esperamos!"
 ctx.font = 'bold 34px Montserrat, sans-serif';
 ctx.textAlign = 'center';
 
@@ -593,7 +672,6 @@ ctx.strokeStyle = '#fff';
 ctx.strokeText('¡Los esperamos!', w/2, h - 40);
 
 lastCanvas = canvas;
-
     // Mostrar preview
     vipPreview.innerHTML = '';
     vipPreview.appendChild(canvas);
